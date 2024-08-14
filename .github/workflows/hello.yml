@@ -1,0 +1,22 @@
+name: Hello World!
+
+on:
+  workflow_dispatch:
+
+jobs:
+  app-setup:
+    runs-on: windows-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: configure node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: Greeting
+        run: echo "Brawo! Dobra robota" >> $GITHUB_SETUP_SUMMARY
