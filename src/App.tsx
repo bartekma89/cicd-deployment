@@ -7,6 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
   return (
     <>
+      <div>Practicing CI/CD</div>
       <div>
         {APP_VERSION} - {APP_TEST} - {import.meta.env.VITE_PORT}
       </div>
