@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: "./dist"
-          production-branch: main
+          production-branch: master
           github-token: ${{secrets.GITHUB_TOKEN}}
           deploy-message: "Deployed from github actions"
         env:
