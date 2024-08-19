@@ -1,28 +1,29 @@
+# workflow to caly plik
 name: Hello World!
 
-on:
-  workflow_dispatch:
+on: # trigger ktory decyduje, ze tak workflow sie uruchamia
+  workflow_dispatch: # ten scenariusz uruchamiany na żądanie
 
-jobs:
-  app-setup:
-    runs-on: windows-latest
+jobs: # job
+  app-setup: # nazwa joba
+    runs-on: windows-latest # runner
 
-    steps:
-      - name: checkout repository
-        uses: actions/checkout@v4
+    steps: # zestaw krokow
+      - name: checkout repository # pobierany nasze repozytorium na maszyne wirtualna
+        uses: actions/checkout@v4 # gotowa akcja
 
-      - name: install pnpm
+      - name: install pnpm # instalacja pnpm na maszynie wirtualnej
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      - name: configure node
-        uses: actions/setup-node@v4
-        with:
+      - name: configure node # konfiguruje nasz runtime, w tym wypadku jest to node
+        uses: actions/setup-node@v4 # gotowa akcja
+        with: # przekazany argument
           node-version: "20.x"
 
       - name: install dependencies
-        run: pnpm install
+        run: pnpm install # nasza akcja
 
       - name: Greeting
-        run: echo "Brawo! Dobra robota" >> $GITHUB_SETUP_SUMMARY
+        run: echo "Brawo! Znakomita robota!" >> $GITHUB_STEP_SUMMARY
