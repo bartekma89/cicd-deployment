@@ -22,10 +22,10 @@ jobs:
           node-version-file: ".nvmrc"
 
       - name: install dependencies
-        uses: pnpm install
+        run: pnpm install
 
       - name: build app
-        uses: pnpm build
+        run: pnpm build
 
       - name: deploy to netlify
         uses: nwtgck/actions-netlify@v3.0
